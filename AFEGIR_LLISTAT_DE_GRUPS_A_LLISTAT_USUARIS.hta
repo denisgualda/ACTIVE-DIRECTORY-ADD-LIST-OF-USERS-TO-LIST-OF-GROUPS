@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>AFEGIR LLISTAT DE GRUPS A LLISTAT D'USUARIS</title>
+	<title>AFEGIR LLISTAT D'USUARIS A LLISTAT DE GRUPS</title>
 
 	<HTA:APPLICATION
 	APPLICATIONNAME = "LLISTA D'ELEMENTS"
@@ -24,7 +24,7 @@
 'INICI BOTO EXECUTA------------'
 	Sub Executa
 
-
+		txt_sortida.value=""
 		'FITXER TEMPORALS DE LECTURA DE LES CAIXES DE TEXT ---------------------'
 		txtLlistatUsuaris = "llistatUsuaris.txt"
 		txtLlisatGrups = "llistatGrups.txt"
@@ -41,16 +41,16 @@
 		'-----------------------------------------------------------------------'
 
 
-
+		'ESCRIU FITXER TEMPORAL PER LLISAT DUSUARIS'
+		strTextLlistatUsuaris = text1.value
+		objLlistatUsuaris.Write strTextLlistatUsuaris & VBCrlf
 
 
 		'ESCRIU FITXER TEMPORAL PER LLISTAT DE GRUPS'
-		strTextLlistatGrups = text1.value
+		strTextLlistatGrups = text2.value
 		objLlistatGrups.Write strTextLlistatGrups & VBCrlf
 		
-		'ESCRIU FITXER TEMPORAL PER LLISAT DUSUARIS'
-		strTextLlistatUsuaris = text2.value
-		objLlistatUsuaris.Write strTextLlistatUsuaris & VBCrlf
+
 
 
 		'LECTURA FITXER LLISTAT DE GRUPS'
@@ -170,14 +170,15 @@ end function
 </head>
 
 <body>
+	 <h1>AFEGIR LLISTAT D'USUARIS A LLISTAT DE GRUPS</h1>
 	 <div style="float: left; width: 50%">
-	<h3>LLISTAT DE GRUPS</h3> 
+	<h2>LLISTAT D'USUARIS</h2> 
 </div>
-<h3>LLISTAT USUARIS</h3>
+<h2>LLISTAT DE GRUPS</h2>
 	<textarea name="text1" id="TextFile" rows="30" cols="70"></textarea> - <textarea name="text2" id="TextFile" rows="30" cols="70"></textarea>  
 	<br>
 	<br>
-	<input type="button" value="    Afegir grups    " onclick="Executa"></br>
+	<input type="button" value="    Afegir Usuaris a Grups    " onclick="Executa"></br>
 	<br>
 
 	<!-- CAIXA TEXT RESULTAT -->
